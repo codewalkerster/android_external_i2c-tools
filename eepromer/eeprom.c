@@ -40,7 +40,7 @@ int eeprom_write(int fd,
 	struct i2c_rdwr_ioctl_data msg_rdwr;
 	struct i2c_msg             i2cmsg;
 	int i;
-	char _buf[MAX_BYTES + 1];
+	unsigned char _buf[MAX_BYTES + 1];
 
 	if(len>MAX_BYTES){
 	    fprintf(stderr,"I can only write MAX_BYTES bytes at a time!\n");
@@ -219,7 +219,7 @@ int main(int argc, char **argv){
      *** I'm not the one to blame of you screw your computer!
      ***/
     if(rwmode && ! force){
-	unsigned char warnbuf[4];
+	char warnbuf[4];
 	fprintf(stderr,"**WARNING**\n");
 	fprintf(stderr," - \tYou have chosen to WRITE to this eeprom.\n");
 	fprintf(stderr,"\tMake sure that this tiny chip is *NOT* vital to the\n");
@@ -261,11 +261,11 @@ int main(int argc, char **argv){
 		}
 		if(j!=sizeof(buf)){
 		    fprintf(stderr,"File '%s' is too small, padding eeprom with zeroes\n",fn);
-		    while(j<sizeof(buf))
+		    while(j<(int) sizeof(buf))
 			buf[j++]=0;
 		}
 	    } else {
-		for(j=0;j<sizeof(buf);j++)
+		for(j=0;j<(int) sizeof(buf);j++)
 		    buf[j]=0;
 	    }
             for(j=0;j<(BYTES_PER_PAGE/MAX_BYTES);j++)

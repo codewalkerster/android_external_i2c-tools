@@ -83,7 +83,7 @@ void help(void)
 int main(int argc, char *argv[]){
 
 	int i, file, addr;
-	int  action; //in this variable will be (-r,-w,-e)
+	int action = READ; //in this variable will be (-r,-w,-e)
 	char device[45];
 	int force;
 
@@ -278,7 +278,7 @@ int block_write(int file,int dev_addr,int eeprom_addr,unsigned char *buf,int len
 int block_read(int file,int dev_addr,int eeprom_addr,unsigned char *buf){
 
 	int ln;
-	char buff[2]; //={0x0,0x0};
+	unsigned char buff[2]; //={0x0,0x0};
 	
 	struct i2c_msg msg[2];
 		
@@ -463,7 +463,7 @@ int content_write(int file, int addr){
 int content_read(int file, int addr){
 
 	unsigned char buf[MAX_BLK_SIZE];
-	int i, j, k, delka;
+	unsigned int i, j, k, delka;
 	
 	delka=0;
 	k=0;
@@ -472,7 +472,7 @@ int content_read(int file, int addr){
 	inode_read(file,addr,p_ind );
 
 
-	for(i=HEAD_SIZE;i<= (HEAD_SIZE + p_ind->data_len);i=i+MAX_BLK_SIZE ) {
+	for(i=HEAD_SIZE; i <= (HEAD_SIZE + p_ind->data_len); i=i+MAX_BLK_SIZE) {
 	
 	
 	 		if(block_read(file,addr,i,buf) !=0) {
@@ -616,7 +616,7 @@ int  inode_write(int file,int dev_addr,int lenght){
 		msg[1].addr = dev_addr;
 		msg[1].flags = I2C_M_NOSTART;
 		msg[1].len = sizeof(struct mini_inode);
-		msg[1].buf = (char *) &m_ind;
+		msg[1].buf = (unsigned char *) &m_ind;
 
 	
 
@@ -645,7 +645,7 @@ int inode_read(int file,int dev_addr,void *p_inode ){
 	
 	#define  POK  32
 	int ln;
-	char buff[2]; //={0x0,0x0};
+	unsigned char buff[2]; //={0x0,0x0};
 	
 	struct i2c_msg msg[2];
 		
