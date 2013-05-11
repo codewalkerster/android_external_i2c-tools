@@ -29,14 +29,6 @@
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
 
-/* Compatibility defines */
-#ifndef I2C_SMBUS_I2C_BLOCK_BROKEN
-#define I2C_SMBUS_I2C_BLOCK_BROKEN I2C_SMBUS_I2C_BLOCK_DATA
-#endif
-#ifndef I2C_FUNC_SMBUS_PEC
-#define I2C_FUNC_SMBUS_PEC I2C_FUNC_SMBUS_HWPEC_CALC
-#endif
-
 __s32 i2c_smbus_access(int file, char read_write, __u8 command,
 		       int size, union i2c_smbus_data *data)
 {

@@ -4,10 +4,13 @@ LOCAL_PATH := $(call my-dir)
 
 i2c_includes := $(LOCAL_PATH)/include $(LOCAL_PATH)/kernel
 
+smbus_lib := lib/smbus.c
+
 # i2cdetect
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
+	$(smbus_lib) \
 	tools/i2cdetect.c \
 	tools/i2cbusses.c
 
@@ -21,6 +24,7 @@ include $(BUILD_EXECUTABLE)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
+	$(smbus_lib) \
 	tools/i2cdump.c \
 	tools/i2cbusses.c \
 	tools/util.c
@@ -35,6 +39,7 @@ include $(BUILD_EXECUTABLE)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
+	$(smbus_lib) \
 	tools/i2cset.c \
 	tools/i2cbusses.c \
 	tools/util.c
@@ -49,6 +54,7 @@ include $(BUILD_EXECUTABLE)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
+	$(smbus_lib) \
 	tools/i2cget.c \
 	tools/i2cbusses.c \
 	tools/util.c
