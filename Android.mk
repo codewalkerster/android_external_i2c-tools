@@ -65,4 +65,32 @@ LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_EXECUTABLE)
 
+# eeprom
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+        $(smbus_lib) \
+        eepromer/eeprom.c
+
+LOCAL_C_INCLUDES := $(i2c_includes)
+LOCAL_MODULE := eeprom
+LOCAL_MODULE_STEM := i2c-eeprom
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_EXECUTABLE)
+
+# eepromer
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+	$(smbus_lib) \
+	eepromer/eepromer.c
+
+LOCAL_C_INCLUDES := $(i2c_includes)
+LOCAL_MODULE := eepromer
+LOCAL_MODULE_STEM := i2c-eepromer
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_EXECUTABLE)
+
 endif
