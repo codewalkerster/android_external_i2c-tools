@@ -93,4 +93,18 @@ LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_EXECUTABLE)
 
+# Sample Acer 1425P/1825PTZ ST LIS3 Sensor Reader
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+	$(smbus_lib) \
+	stm-gsensor/i2c-gsensor.c
+
+LOCAL_C_INCLUDES := $(i2c_includes)
+LOCAL_MODULE := stlis-gsensord
+LOCAL_MODULE_STEM := stlis-gsensord
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_EXECUTABLE)
+
 endif
