@@ -43,6 +43,8 @@
 
 #include <i2c/smbus.h>
 
+#include <linux/i2c-dev.h>
+
 enum lis3_reg {
 	WHO_AM_I	= 0x0F,
 	OFFSET_X	= 0x16,
