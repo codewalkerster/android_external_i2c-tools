@@ -16,7 +16,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_C_INCLUDES := $(i2c_includes)
 LOCAL_MODULE := i2cdetect
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 include $(BUILD_EXECUTABLE)
 
@@ -31,7 +31,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_C_INCLUDES := $(i2c_includes)
 LOCAL_MODULE := i2cdump
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 include $(BUILD_EXECUTABLE)
 
@@ -46,7 +46,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_C_INCLUDES := $(i2c_includes)
 LOCAL_MODULE := i2cset
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 include $(BUILD_EXECUTABLE)
 
@@ -61,7 +61,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_C_INCLUDES := $(i2c_includes)
 LOCAL_MODULE := i2cget
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 include $(BUILD_EXECUTABLE)
 
@@ -75,7 +75,7 @@ LOCAL_SRC_FILES := \
 LOCAL_C_INCLUDES := $(i2c_includes)
 LOCAL_MODULE := eeprom
 LOCAL_MODULE_STEM := i2c-eeprom
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 include $(BUILD_EXECUTABLE)
 
@@ -89,7 +89,7 @@ LOCAL_SRC_FILES := \
 LOCAL_C_INCLUDES := $(i2c_includes)
 LOCAL_MODULE := eepromer
 LOCAL_MODULE_STEM := i2c-eepromer
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 include $(BUILD_EXECUTABLE)
 
@@ -103,7 +103,7 @@ LOCAL_SRC_FILES := \
 LOCAL_C_INCLUDES := $(i2c_includes)
 LOCAL_MODULE := stlis-gsensord
 LOCAL_MODULE_STEM := stlis-gsensord
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional eng
 
 include $(BUILD_EXECUTABLE)
 
